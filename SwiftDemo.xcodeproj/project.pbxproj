@@ -216,6 +216,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				6E97A9D42E264774001D39B6 /* XCRemoteSwiftPackageReference "sdk-swift" */,
+				3F62BCF12E3B30780015E151 /* XCRemoteSwiftPackageReference "BigInt" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6E97A9922E264737001D39B6 /* Products */;
@@ -588,12 +589,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F62BCF12E3B30780015E151 /* XCRemoteSwiftPackageReference "BigInt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/attaswift/BigInt";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		6E97A9D42E264774001D39B6 /* XCRemoteSwiftPackageReference "sdk-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dynamic-labs/sdk-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.4;
+				minimumVersion = 0.0.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
