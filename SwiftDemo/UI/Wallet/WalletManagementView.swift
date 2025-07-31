@@ -976,20 +976,10 @@ struct WalletManagementView: View {
                 }
                 
                 // Clear success message after 10 seconds
-                Task {
-                    try? await Task.sleep(nanoseconds: Constants.errorMessageTimeout)
-                    await MainActor.run {
-                        usdcTransactionSuccess = nil
-                    }
-                }
+                clearSuccessMessage()
 
                 // Clear success message after 10 seconds
-                Task {
-                    try? await Task.sleep(nanoseconds: Constants.errorMessageTimeout)
-                    await MainActor.run {
-                        usdcTransactionSuccess = nil
-                    }
-                }
+                clearSuccessMessage()
             } catch {
                 print("🔍 USDC Transfer Error Details:")
                 print("   Error type: \(type(of: error))")
