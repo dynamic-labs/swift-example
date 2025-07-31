@@ -30,6 +30,7 @@ private enum Constants {
     static let errorMessageTimeout: UInt64 = 10_000_000_000  // 10 seconds
     static let recoverySuccessTimeout: UInt64 = 3_000_000_000  // 3 seconds
     static let usdcGasLimit = BigUInt(65_000)  // Standard ERC-20 transfer gas limit
+    static let TRANSFER_FUNCTION_SELECTOR = Data([0xa9, 0x05, 0x9c, 0xbb])  // transfer(address,uint256) selector
 }
 
 // MARK: - USDC Contract Addresses
@@ -812,7 +813,15 @@ struct WalletManagementView: View {
         }
     }
 
-
+    // MARK: - Helper Functions
+    private func clearSuccessMessage() {
+        Task {
+            try? await Task.sleep(nanoseconds: Constants.errorMessageTimeout)
+            await MainActor.run {
+                usdcTransactionSuccess = nil
+            }
+        }
+    }
 
     // MARK: - USDC Operations
     private func sendUSDC(for wallet: EthereumWallet) {
@@ -903,9 +912,7 @@ struct WalletManagementView: View {
                 }
 
                 // Encode the ERC-20 transfer function call
-                let functionSignature = "transfer(address,uint256)"
-                // Calculate the correct function selector (first 4 bytes of keccak256 hash)
-                let functionSelector = TRANSFER_FUNCTION_SELECTOR
+                let functionSelector = Constants.TRANSFER_FUNCTION_SELECTOR
 
                 // Encode recipient address (32 bytes, padded)
                 var encodedData = functionSelector
@@ -975,10 +982,6 @@ struct WalletManagementView: View {
                     usdcTransactionSuccess = "⏳ Transaction submitted! Hash: \(txHash)\n\nCheck block explorer to verify final status"
                 }
                 
-                // Clear success message after 10 seconds
-                clearSuccessMessage()
-
-                // Clear success message after 10 seconds
                 clearSuccessMessage()
             } catch {
                 print("🔍 USDC Transfer Error Details:")

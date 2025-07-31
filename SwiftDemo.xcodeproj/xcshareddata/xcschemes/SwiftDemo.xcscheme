@@ -77,7 +77,17 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "DYNAMIC_ENVIRONMENT_ID"
-            value = "7827b36d-e5f8-459f-aff9-4ff7508dc94d"
+            value = "4e598b41-f388-489b-a0b3-d24064b1d1ed"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "DYNAMIC_BASE_URL"
+            value = "https://app.dynamicauth.com/api/v0"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "DYNAMIC_RELAY_HOST"
+            value = "relay.dynamicauth.com"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
