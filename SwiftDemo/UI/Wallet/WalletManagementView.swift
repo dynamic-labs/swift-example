@@ -108,7 +108,7 @@ struct WalletManagementView: View {
     @State private var usdcTransactionError: String?
     @State private var usdcTransactionSuccess: String?
     @State private var usdcAmount: String = "1"
-    @State private var usdcRecipientAddress: String = "0xd4f748199B91c22095150d2d4Cca3Fe6175B0CbA"
+    @State private var usdcRecipientAddress: String = ""
 
     var body: some View {
         ScrollView {
