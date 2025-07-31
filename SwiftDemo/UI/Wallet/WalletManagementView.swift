@@ -905,7 +905,7 @@ struct WalletManagementView: View {
                 // Encode the ERC-20 transfer function call
                 let functionSignature = "transfer(address,uint256)"
                 // Calculate the correct function selector (first 4 bytes of keccak256 hash)
-                let functionSelector = Data([0xa9, 0x05, 0x9c, 0xbb]) // transfer(address,uint256) selector
+                let functionSelector = TRANSFER_FUNCTION_SELECTOR
 
                 // Encode recipient address (32 bytes, padded)
                 var encodedData = functionSelector
